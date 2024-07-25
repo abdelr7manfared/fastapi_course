@@ -24,4 +24,4 @@ app.include_router(auth.router)
 app.include_router(vote.router)     
 @app.get("/")
 def root():
-    return {"TEST":"ok!!!"}
+    return {"test":"ok!!!"}
