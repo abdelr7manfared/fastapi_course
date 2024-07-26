@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn instance to serve application
+After=network.target
+
+[Service]
+user=lucifer
+group=lucifer
+WorkingDirectory=/home/lucifer/app/src
+Environment="PATH=/home/lucifer/app/env/bin"
+EnvironmentFile=/home/lucifer/.env
+ExecStart=/home/lucifer/app/env/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
